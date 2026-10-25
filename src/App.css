@@ -1,0 +1,46 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+}
+
+.sudoku-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  width: 450px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 2px solid #334155;
+  box-sizing: border-box;
+}
+
+.sudoku-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #305a8e;
+  border-bottom: 1px solid #4d7ebb;
+  box-sizing: border-box;
+}
+
+/* Thicker borders between 3x3 boxes */
+.sudoku-cell:nth-child(3n) {
+  border-right: 2px solid #334155;
+}
+
+.sudoku-cell:nth-child(9n) {
+  border-right: none;
+}
+
+.sudoku-cell:nth-child(n + 73) {
+  border-bottom: none;
+}
+
+/* Horizontal separators after rows 3 and 6 */
+.sudoku-cell:nth-child(n + 19):nth-child(-n + 27),
+.sudoku-cell:nth-child(n + 46):nth-child(-n + 54) {
+  border-bottom: 2px solid #334155;
+}
